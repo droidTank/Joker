@@ -23,7 +23,15 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 
-appengine.tools.cloudSdkHome = "Y:/GoogleCloud/google-cloud-sdk"
+// Configuration for custom google-cloud-sdk installation directory
+// Remove the below line if using default directory
+// appengine.tools.cloudSdkHome = "Y:/GoogleCloud/google-cloud-sdk"
+
+// For testing on a physical device with a local development server.
+// Make development server accessible to the network by setting it to listen to external connections.
+// Remove the below line while testing in an emulator
+// appengine.run.host = '0.0.0.0'
+
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 
@@ -35,4 +43,6 @@ dependencies {
     implementation 'javax.servlet:servlet-api:2.5'
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
+
+    implementation project(":joking")
 }
