@@ -15,7 +15,7 @@ import static junit.framework.Assert.assertTrue;
 public class JokeFetchAsyncTest {
 
     @Test
-    public void testVerifyJoke() throws InterruptedException {
+    public void checkNonEmptyJoke() throws InterruptedException {
         assertTrue(true);
 
         // Creating  a countDownLatch to let the test know when asyncTask is done
