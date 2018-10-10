@@ -1,10 +1,10 @@
 package com.pushpal.joking;
 
 public class Joke {
-
     public String tellAJoke() {
-        String joke = "This is a joke. Believe me.";
-
-        return joke;
+        return "Q. How does a computer get drunk?\n" +
+                "\n" +
+                "A. It takes screen shots!\n" +
+                "\n";
     }
 }
