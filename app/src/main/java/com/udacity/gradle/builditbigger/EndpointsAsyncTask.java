@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -18,14 +20,18 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi myApiService = null;
     private Context context;
+    private ProgressBar progressBar;
 
-    EndpointsAsyncTask(Context context) {
+    EndpointsAsyncTask(Context context, ProgressBar progressBar) {
         this.context = context;
+        this.progressBar = progressBar;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        if (progressBar != null)
+            progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -61,6 +67,8 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        if (progressBar != null && progressBar.isShown())
+            progressBar.setVisibility(View.INVISIBLE);
         Intent jokeIntent = new Intent(context, JokeActivity.class);
         jokeIntent.putExtra("joke", result);
         context.startActivity(jokeIntent);

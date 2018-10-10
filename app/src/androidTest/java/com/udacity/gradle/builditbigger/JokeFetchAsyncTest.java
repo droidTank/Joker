@@ -21,7 +21,7 @@ public class JokeFetchAsyncTest {
         // Creating  a countDownLatch to let the test know when asyncTask is done
         final CountDownLatch countDownLatch = new CountDownLatch(1);
 
-        EndpointsAsyncTask testTask = new EndpointsAsyncTask(InstrumentationRegistry.getContext()) {
+        EndpointsAsyncTask testTask = new EndpointsAsyncTask(InstrumentationRegistry.getContext(), null) {
             @Override
             protected void onPostExecute(String result) {
                 // Checks for null
