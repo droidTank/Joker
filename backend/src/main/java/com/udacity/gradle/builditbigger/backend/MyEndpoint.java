@@ -32,6 +32,9 @@ public class MyEndpoint {
         return response;
     }
 
+    /**
+     * An endpoint method that provides jokes
+     */
     @ApiMethod(name = "pullJoke")
     public NewJoke pullJoke() {
         NewJoke newJoke = new NewJoke();
