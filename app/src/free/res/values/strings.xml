@@ -1,3 +1,6 @@
 <resources>
+    <!--Note: This is a sample AdMob App ID-->
+    <string name="ad_mob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <!--Note: This is a test banner ad unit ID-->
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

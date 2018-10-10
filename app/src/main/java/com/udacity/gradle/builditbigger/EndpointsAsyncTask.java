@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -14,6 +15,7 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import java.io.IOException;
 
 class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+    private final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi myApiService = null;
     private Context context;
 
@@ -52,7 +54,8 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         try {
             return myApiService.pullJoke().execute().getJoke();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.e(TAG, e.getMessage());
+            return "Oops! There is a problem in fetching your joke. \nI'm not joking this time.";
         }
     }
 
