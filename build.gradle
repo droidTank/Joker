@@ -21,3 +21,19 @@ allprojects {
         google()
     }
 }
+
+// Task to automate server start and testing
+task automate(dependsOn: ":backend:appengineStart") {
+    doLast {
+        println "Started the server!"
+    }
+}
+
+task runTest(dependsOn: ":app:assembleAndroidTest") {
+    doLast {
+        println "Test has been ran. Going to stop server."
+    }
+}
+
+automate.finalizedBy "runTest"
+runTest.finalizedBy ":backend:appengineStop"
