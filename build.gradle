@@ -31,7 +31,7 @@ task automate {
 }
 
 task runTest {
-    dependsOn ":app:assembleFreeDebugAndroidTest"
+    dependsOn ":app:connectedAndroidTest"
     doLast {
         println "Test has been ran. Going to stop server."
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Joking</string>
+    <string name="joke_error">Oops! There is a problem in fetching your joke. \nI am not joking this time.</string>
 </resources>

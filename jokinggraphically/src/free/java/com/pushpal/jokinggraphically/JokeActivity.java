@@ -31,7 +31,7 @@ public class JokeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            String joke = extras.getString("joke", "Hey it's a bad joke!");
+            String joke = extras.getString("joke", getResources().getString(R.string.joke_error));
             jokeDisplay.setText(joke);
         }
     }

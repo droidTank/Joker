@@ -61,7 +61,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
             return myApiService.pullJoke().execute().getJoke();
         } catch (IOException e) {
             Log.e(TAG, e.getMessage());
-            return "Oops! There is a problem in fetching your joke. \nI'm not joking this time.";
+            return null;
         }
     }
 
