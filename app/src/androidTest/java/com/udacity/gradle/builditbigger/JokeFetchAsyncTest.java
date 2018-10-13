@@ -2,12 +2,14 @@ package com.udacity.gradle.builditbigger;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.text.TextUtils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.concurrent.CountDownLatch;
 
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
@@ -27,7 +29,8 @@ public class JokeFetchAsyncTest {
                 // Checks for null
                 assertNotNull(result);
                 // Checks for non-empty string
-                assertTrue(result.trim().length() > 0);
+                //assertTrue(result.trim().length() > 0);
+                assertFalse(TextUtils.isEmpty(result));
                 countDownLatch.countDown();
             }
         };
